@@ -2,24 +2,77 @@
 
 <div class="fv">
     <div class="fv__content">
-        <h2 class="fv__title">HELLO!!</h2>
-        <h3 class="fv__sub-title">This is multilingual Demo Site!</h3>
+        <h2 class="fv__title">
+            <?php
+            $locale = get_locale();
+            if ($locale == 'ja'): ?>
+                <!-- 日本語用のテキスト -->
+                HELLO!!
+            <?php elseif ($locale == 'ar'): ?>
+                <!-- アラビア語用のテキスト -->
+                مرحبًا!!
+            <?php else: ?>
+                <!-- 英語用のテキスト -->
+                HELLO!!
+            <?php endif; ?>
+        </h2>
+        <h3 class="fv__sub-title">
+            <?php
+            $locale = get_locale();
+            if ($locale == 'ja'): ?>
+                <!-- 日本語用のテキスト -->
+                This is multilingual Demo Site!
+            <?php elseif ($locale == 'ar'): ?>
+                <!-- アラビア語用のテキスト -->
+                هذا موقع تجريبي متعدد اللغات!
+            <?php else: ?>
+                <!-- 英語用のテキスト -->
+                This is multilingual Demo Site!
+            <?php endif; ?>
+        </h3>
     </div>
 </div>
 
 <section class="contents">
     <div class="inner">
-        <h2 class="section__title">セクションタイトルが入ります。言語切り替え可能です。</h2>
+        <h2 class="section__title">
+            <?php
+            $locale = get_locale();
+            if ($locale == 'ja'): ?>
+                <!-- 日本語用のテキスト -->
+                セクションタイトルが入ります。言語切り替え可能です。
+            <?php elseif ($locale == 'ar'): ?>
+                <!-- アラビア語用のテキスト -->
+                يحتوي على عنوان القسم تبديل اللغة ممكن.
+            <?php else: ?>
+                <!-- 英語用のテキスト -->
+                Contains the section title. Language switching is possible.
+            <?php endif; ?>
+        </h2>
         <div class="contents__text">
-            <p>この文章は言語切り替え対応しています。
-                この文章は言語切り替え対応しています。
-            </p>
-            <p>この文章は言語切り替え対応しています。
-                この文章は言語切り替え対応しています。
-            </p>
-            <p>この文章は言語切り替え対応しています。
-                この文章は言語切り替え対応しています。
-            </p>
+            <?php
+            $locale = get_locale();
+            if ($locale == 'ja'): ?>
+                <!-- 日本語用のテキスト -->
+                <p>この文章は言語切り替え対応しています。
+                    この文章は言語切り替え対応しています。
+                </p>
+                <p>この文章は言語切り替え対応しています。
+                    この文章は言語切り替え対応しています。
+                </p>
+                <p>PCを想定しているためレスポンシブは最低限にしています。
+                </p>
+            <?php elseif ($locale == 'ar'): ?>
+                <!-- アラビア語用のテキスト -->
+                <p>يدعم هذا النص تبديل اللغة. يدعم هذا النص تبديل اللغة.</p>
+                <p>يدعم هذا النص تبديل اللغة. يدعم هذا النص تبديل اللغة.</p>
+                <p>نظرًا لأنه مخصص للكمبيوتر الشخصي، يتم الاحتفاظ بالاستجابة إلى الحد الأدنى.</p>
+            <?php else: ?>
+                <!-- 英語用のテキスト -->
+                <p>This text supports language switching. This text supports language switching.</p>
+                <p>This text supports language switching. This text supports language switching.</p>
+                <p>Since it is intended for PC, responsiveness is kept to a minimum.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -56,13 +109,25 @@
 
 <section class="articles">
     <div class="inner">
-        <h2 class="section__title">記事一覧も多言語対応しています。</h2>
+        <h2 class="section__title">
+            <?php
+            $locale = get_locale();
+            if ($locale == 'ja'): ?>
+                <!-- 日本語用のテキスト -->
+                記事一覧も多言語対応しています。
+            <?php elseif ($locale == 'ar'): ?>
+                <!-- アラビア語用のテキスト -->
+                قائمة المقالات متاحة أيضًا بلغات متعددة.
+            <?php else: ?>
+                <!-- 英語用のテキスト -->
+                The article list is also available in multiple languages.
+            <?php endif; ?>
+        </h2>
         <?php if (have_posts()) : ?>
             <div class="articles__container">
                 <?php while (have_posts()) : the_post(); ?>
-
-                    <article class="article">
-                        <div class="articles__img">
+                    <a href="<?php the_permalink(); ?>" class="article">
+                        <div class="article__img">
                             <?php if (has_post_thumbnail()) : ?>
                                 <img
                                     src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
@@ -77,14 +142,24 @@
                                     height="300">
                             <?php endif; ?>
                         </div>
-                        <h3 class="articles__title"><?php the_title(); ?></h3>
-                        <div class="articles__excerpt"><?php the_excerpt(); ?></div>
-                    </article>
-
+                        <h3 class="article__title"><?php the_title(); ?></h3>
+                        <div class="article__excerpt"><?php the_excerpt(); ?></div>
+                    </a>
                 <?php endwhile; ?>
             </div>
         <?php else : ?>
-            <p>現在、表示する投稿がありません。</p>
+            <?php
+            $locale = get_locale();
+            if ($locale == 'ja'): ?>
+                <!-- 日本語用のテキスト -->
+                <p>現在、表示する投稿がありません。</p>
+            <?php elseif ($locale == 'ar'): ?>
+                <!-- アラビア語用のテキスト -->
+                <p>لا يوجد حاليا أي مشاركات لعرضها.</p>
+            <?php else: ?>
+                <!-- 英語用のテキスト -->
+                <p>There are currently no posts to display.</p>
+            <?php endif; ?>
         <?php endif; ?>
     </div>
 </section>
