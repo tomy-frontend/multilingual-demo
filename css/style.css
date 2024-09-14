@@ -70,16 +70,20 @@ img {
   inset: 0;
   width: 100%;
   padding-block: 20px;
-  padding-inline: 50px;
   background: var(--black);
   color: var(--white);
 }
 
 /* global-nav */
 .global-nav {
+  --padding-inline: 50px;
+  --max-content-width: 1200px;
+
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
+  width: min(calc(100% - var(--padding-inline) * 2), var(--max-content-width));
+  margin-inline: auto;
 }
 
 .global-nav h1 {

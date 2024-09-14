@@ -21,7 +21,7 @@
             $locale = get_locale();
             if ($locale == 'ja'): ?>
                 <!-- 日本語用のテキスト -->
-                This is multilingual Demo Site!
+                多言語対応デモサイトです！
             <?php elseif ($locale == 'ar'): ?>
                 <!-- アラビア語用のテキスト -->
                 هذا موقع تجريبي متعدد اللغات!
@@ -40,7 +40,7 @@
             $locale = get_locale();
             if ($locale == 'ja'): ?>
                 <!-- 日本語用のテキスト -->
-                セクションタイトルが入ります。言語切り替え可能です。
+                セクションタイトルが入ります。固定テキストも言語切り替え可能です。
             <?php elseif ($locale == 'ar'): ?>
                 <!-- アラビア語用のテキスト -->
                 يحتوي على عنوان القسم تبديل اللغة ممكن.
@@ -54,24 +54,22 @@
             $locale = get_locale();
             if ($locale == 'ja'): ?>
                 <!-- 日本語用のテキスト -->
-                <p>この文章は言語切り替え対応しています。
-                    この文章は言語切り替え対応しています。
+                <p>この文章も言語切り替え対応しています。
                 </p>
-                <p>この文章は言語切り替え対応しています。
-                    この文章は言語切り替え対応しています。
+                <p>固定の文章も条件切り替えで多言語対応することが可能です。
                 </p>
-                <p>PCを想定しているためレスポンシブは最低限にしています。
+                <p>PCを想定しているためレスポンシブは最低限にしています🙇
                 </p>
             <?php elseif ($locale == 'ar'): ?>
                 <!-- アラビア語用のテキスト -->
                 <p>يدعم هذا النص تبديل اللغة. يدعم هذا النص تبديل اللغة.</p>
-                <p>يدعم هذا النص تبديل اللغة. يدعم هذا النص تبديل اللغة.</p>
-                <p>نظرًا لأنه مخصص للكمبيوتر الشخصي، يتم الاحتفاظ بالاستجابة إلى الحد الأدنى.</p>
+                <p>يمكن أيضًا جعل الجمل الثابتة متعددة اللغات عن طريق تغيير الظروف.</p>
+                <p>نظرًا لأنه مخصص للكمبيوتر الشخصي، يتم الاحتفاظ بالاستجابة إلى الحد الأدنى.🙇</p>
             <?php else: ?>
                 <!-- 英語用のテキスト -->
-                <p>This text supports language switching. This text supports language switching.</p>
-                <p>This text supports language switching. This text supports language switching.</p>
-                <p>Since it is intended for PC, responsiveness is kept to a minimum.</p>
+                <p>This text also supports language switching.</p>
+                <p>Fixed sentences can also be made multilingual by changing conditions.</p>
+                <p>Since it is intended for PC, responsiveness is kept to a minimum.🙇</p>
             <?php endif; ?>
         </div>
     </div>
