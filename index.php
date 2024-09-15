@@ -82,10 +82,10 @@
 
         if ($locale == 'en') {
             // 英語の場合
-            $link = home_url('/en/about');
+            $link = home_url('/en/about'); // 英語で作成したaboutページへのリンク
         } elseif ($locale == 'ar') {
             // アラビア語の場合
-            $link = home_url('/ar/about');
+            $link = home_url('/ar/about'); // アラビア語で作成したaboutページへのリンク
         }
         ?>
         <a href="<?php echo esc_url($link); ?>" class="c-btn">
