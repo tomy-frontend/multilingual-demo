@@ -1,2 +1,7 @@
 # multilingual-demo
-WordPress多言語サイトのデモサイトです。
+
+WordPress 多言語サイトのデモサイトです。
+
+## デモサイトはこちらからご覧ください。
+
+https://tomy-webdesign.com/multilingual-demo/
