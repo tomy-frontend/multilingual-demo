@@ -76,7 +76,7 @@ img {
 
 /* global-nav */
 .global-nav {
-  --padding-inline: 50px;
+  --padding-inline: 30px;
   --max-content-width: 1200px;
 
   display: grid;
@@ -247,14 +247,24 @@ ul.bogo-language-switcher li a {
 /* 記事部分 */
 /* ======================== */
 .article {
+  --padding: 1rem;
+  --radius: 10px;
+
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
   gap: 20px;
+  background: #fafafa;
+  border-radius: var(--radius);
+  padding: var(--padding);
 }
 
 .article__img {
-  width: 100%;
+  width: calc(100% + var(--padding) * 2);
+  margin-block-start: -1rem;
+  margin-inline-start: -1rem;
+  margin-inline-end: -1rem;
+  border-radius: var(--radius) var(--radius) 0 0;
   height: auto;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -264,12 +274,13 @@ ul.bogo-language-switcher li a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
   transition: transform 0.5s ease;
 }
 
 @media (any-hover: hover) {
   .article:hover .article__img img {
-    transform: scale(1.1);
+    transform: scale(1.07);
   }
 }
 
@@ -322,57 +333,63 @@ ul.bogo-language-switcher li a {
 }
 
 .entry-content {
-  margin-top: 2.5rem;
+  margin-block-start: 2.5rem;
 }
 
-.entry-content h2,
-.entry-content h3,
-.entry-content h4,
-.entry-content h5,
-.entry-content h6,
-.entry-content ul,
-.entry-content ol,
-.entry-content dl,
-.entry-content dt,
-.entry-content p,
-.entry-content div,
-.entry-content span,
-.entry-content img,
-.entry-content a,
-.entry-content table,
-.entry-content tr,
-.entry-content th,
-.entry-content td,
-.entry-content small,
-.entry-content button,
-.entry-content time,
-.entry-content figure {
-  margin-top: 1.3em;
+.entry-content
+  :is(
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    dl,
+    dt,
+    p,
+    div,
+    span,
+    img,
+    a,
+    table,
+    tr,
+    th,
+    td,
+    small,
+    button,
+    time,
+    figure
+  ) {
+  margin-block-start: 1.3em;
 }
 
-.entry-content h2:first-child,
-.entry-content h3:first-child,
-.entry-content h4:first-child,
-.entry-content h5:first-child,
-.entry-content h6:first-child,
-.entry-content ul:first-child,
-.entry-content ol:first-child,
-.entry-content dl:first-child,
-.entry-content dt:first-child,
-.entry-content p:first-child,
-.entry-content div:first-child,
-.entry-content span:first-child,
-.entry-content img:first-child,
-.entry-content a:first-child,
-.entry-content table:first-child,
-.entry-content tr:first-child,
-.entry-content th:first-child,
-.entry-content td:first-child,
-.entry-content small:first-child,
-.entry-content button:first-child,
-.entry-content time:first-child,
-.entry-content figure:first-child {
-  margin-top: 0;
+.entry-content
+  :is(
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    dl,
+    dt,
+    p,
+    div,
+    span,
+    img,
+    a,
+    table,
+    tr,
+    th,
+    td,
+    small,
+    button,
+    time,
+    figure
+  ):first-child {
+  margin-block-start: 0;
 }
 
 .entry-content h2 {
