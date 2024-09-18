@@ -71,6 +71,57 @@ img {
   }
 }
 
+/* loading */
+.loading {
+  position: fixed;
+  inset: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+
+/* loadingが終わったら非表示 */
+.loading.loaded {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.loading svg {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  animation: loading 3.4s ease-in-out infinite alternate;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  60% {
+    transform: scale(3);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(130) rotate(360deg);
+    opacity: 1;
+  }
+}
+
 /* ======================== */
 /* header.php */
 /* ======================== */
