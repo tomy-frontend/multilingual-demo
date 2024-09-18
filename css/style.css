@@ -1,4 +1,27 @@
 :root {
+  /* variable-font */
+  --font-variable-minViewportPx-default: 360;
+  --font-variable-maxViewportPx-default: 750;
+  --font-variable-remBase: 16;
+  --font-variable-minViewportPx: var(--font-variable-minViewportPx-default);
+  --font-variable-maxViewportPx: var(--font-variable-maxViewportPx-default);
+  --font-variable-variablePart: calc(
+    (var(--font-variable-maxPx) - var(--font-variable-minPx)) /
+      (var(--font-variable-maxViewportPx) - var(--font-variable-minViewportPx))
+  );
+  --font-variable-constant: calc(
+    (
+        var(--font-variable-maxPx) - var(--font-variable-maxViewportPx) *
+          var(--font-variable-variablePart)
+      ) / var(--font-variable-remBase)
+  );
+  --variable-font-size: clamp(
+    calc(var(--font-variable-minPx) * (1rem / var(--font-variable-remBase))),
+    calc((var(--font-variable-constant) * 1rem)) +
+      ((100 * var(--font-variable-variablePart)) * 1vw),
+    calc(var(--font-variable-maxPx) * (1rem / var(--font-variable-remBase)))
+  );
+
   --primary-color: navy;
   --black: #393939;
   --white: #fff;
@@ -12,6 +35,7 @@ body {
   font-weight: var(--font-weight);
   line-height: var(--line-height);
   color: var(--black);
+  overflow-x: hidden;
 }
 
 a {
@@ -44,7 +68,7 @@ img {
 
 .c-btn {
   display: inline-block;
-  width: fit-content;
+  inline-size: fit-content;
   color: var(--white);
   background: var(--black);
   border-radius: 30px;
@@ -182,11 +206,11 @@ ul.bogo-language-switcher li a {
 }
 
 /* ======================== */
-/* topページのスタイル */
+/* topページ */
 /* ======================== */
 .fv {
-  width: 100vw;
-  height: 60vh;
+  width: 100dvw;
+  height: 60dvh;
   display: grid;
   place-items: center;
 }
@@ -197,13 +221,20 @@ ul.bogo-language-switcher li a {
 }
 
 .fv__title {
-  font-size: clamp(2.875rem, 1.225rem + 7.04vw, 5.625rem);
+  --font-variable-minPx: 46;
+  --font-variable-maxPx: 90;
+
+  font-size: var(--variable-font-size);
   font-weight: 700;
   line-height: 1.5;
 }
 
 .fv__sub-title {
-  font-size: clamp(1.125rem, 0.6rem + 2.24vw, 2rem);
+  --font-variable-minPx: 18;
+  --font-variable-maxPx: 32;
+
+  /* font-size: clamp(1.125rem, 0.6rem + 2.24vw, 2rem); */
+  font-size: var(--variable-font-size);
   font-weight: 600;
   line-height: 1.5;
 }
