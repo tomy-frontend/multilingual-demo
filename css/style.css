@@ -3,25 +3,6 @@
   --font-variable-minViewportPx-default: 360;
   --font-variable-maxViewportPx-default: 750;
   --font-variable-remBase: 16;
-  --font-variable-minViewportPx: var(--font-variable-minViewportPx-default);
-  --font-variable-maxViewportPx: var(--font-variable-maxViewportPx-default);
-  --font-variable-variablePart: calc(
-    (var(--font-variable-maxPx) - var(--font-variable-minPx)) /
-      (var(--font-variable-maxViewportPx) - var(--font-variable-minViewportPx))
-  );
-  --font-variable-constant: calc(
-    (
-        var(--font-variable-maxPx) - var(--font-variable-maxViewportPx) *
-          var(--font-variable-variablePart)
-      ) / var(--font-variable-remBase)
-  );
-  --variable-font-size: clamp(
-    calc(var(--font-variable-minPx) * (1rem / var(--font-variable-remBase))),
-    calc((var(--font-variable-constant) * 1rem)) +
-      ((100 * var(--font-variable-variablePart)) * 1vw),
-    calc(var(--font-variable-maxPx) * (1rem / var(--font-variable-remBase)))
-  );
-
   --primary-color: navy;
   --black: #393939;
   --white: #fff;
@@ -96,6 +77,7 @@ img {
   padding-block: 20px;
   background: var(--black);
   color: var(--white);
+  z-index: 99;
 }
 
 /* global-nav */
@@ -221,8 +203,26 @@ ul.bogo-language-switcher li a {
 }
 
 .fv__title {
+  --font-variable-minViewportPx: var(--font-variable-minViewportPx-default);
+  --font-variable-maxViewportPx: var(--font-variable-maxViewportPx-default);
   --font-variable-minPx: 46;
   --font-variable-maxPx: 90;
+  --font-variable-variablePart: calc(
+    (var(--font-variable-maxPx) - var(--font-variable-minPx)) /
+      (var(--font-variable-maxViewportPx) - var(--font-variable-minViewportPx))
+  );
+  --font-variable-constant: calc(
+    (
+        var(--font-variable-maxPx) - var(--font-variable-maxViewportPx) *
+          var(--font-variable-variablePart)
+      ) / var(--font-variable-remBase)
+  );
+  --variable-font-size: clamp(
+    calc(var(--font-variable-minPx) * (1rem / var(--font-variable-remBase))),
+    calc((var(--font-variable-constant) * 1rem)) +
+      ((100 * var(--font-variable-variablePart)) * 1vw),
+    calc(var(--font-variable-maxPx) * (1rem / var(--font-variable-remBase)))
+  );
 
   font-size: var(--variable-font-size);
   font-weight: 700;
@@ -230,10 +230,27 @@ ul.bogo-language-switcher li a {
 }
 
 .fv__sub-title {
+  --font-variable-minViewportPx: var(--font-variable-minViewportPx-default);
+  --font-variable-maxViewportPx: var(--font-variable-maxViewportPx-default);
   --font-variable-minPx: 18;
   --font-variable-maxPx: 32;
+  --font-variable-variablePart: calc(
+    (var(--font-variable-maxPx) - var(--font-variable-minPx)) /
+      (var(--font-variable-maxViewportPx) - var(--font-variable-minViewportPx))
+  );
+  --font-variable-constant: calc(
+    (
+        var(--font-variable-maxPx) - var(--font-variable-maxViewportPx) *
+          var(--font-variable-variablePart)
+      ) / var(--font-variable-remBase)
+  );
+  --variable-font-size: clamp(
+    calc(var(--font-variable-minPx) * (1rem / var(--font-variable-remBase))),
+    calc((var(--font-variable-constant) * 1rem)) +
+      ((100 * var(--font-variable-variablePart)) * 1vw),
+    calc(var(--font-variable-maxPx) * (1rem / var(--font-variable-remBase)))
+  );
 
-  /* font-size: clamp(1.125rem, 0.6rem + 2.24vw, 2rem); */
   font-size: var(--variable-font-size);
   font-weight: 600;
   line-height: 1.5;
