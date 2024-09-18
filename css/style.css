@@ -3,9 +3,13 @@
   --font-variable-minViewportPx-default: 360;
   --font-variable-maxViewportPx-default: 750;
   --font-variable-remBase: 16;
+
+  /* color */
   --primary-color: navy;
   --black: #393939;
   --white: #fff;
+
+  /* font */
   --font-size: 1rem;
   --font-weight: 400;
   --line-height: 1;
