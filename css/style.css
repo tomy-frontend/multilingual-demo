@@ -167,7 +167,7 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  gap: 1rem;
+  gap: 1em;
   width: min(100%, var(--max-content-width));
   justify-self: end;
 }
@@ -207,7 +207,7 @@ ul.bogo-language-switcher li {
   display: inline-block;
   width: 30px;
   height: 30px;
-  font-size: 12px;
+  font-size: 0.75rem;
   background: #7a7a7a;
   border-radius: 50%;
   overflow: visible;
@@ -253,7 +253,10 @@ ul.bogo-language-switcher li a {
 }
 
 .fv__content {
-  width: min(calc(100% - 36px * 2), 1000px);
+  --padding-inline: 36px;
+  --max-content-width: 1000px;
+
+  width: min(calc(100% - var(--padding-inline) * 2), var(--max-content-width));
   margin-inline: auto;
 }
 
@@ -334,8 +337,8 @@ ul.bogo-language-switcher li a {
 }
 
 .articles {
-  padding-block-start: 2rem;
-  padding-block-end: 6rem;
+  padding-block-start: 2em;
+  padding-block-end: 6em;
 }
 
 .articles__container {
@@ -356,7 +359,7 @@ ul.bogo-language-switcher li a {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  gap: 20px;
+  gap: 1.25em;
   background: #fafafa;
   border-radius: var(--radius);
   padding: var(--padding);
