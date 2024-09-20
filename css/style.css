@@ -20,6 +20,9 @@ body {
   font-weight: var(--font-weight);
   line-height: var(--line-height);
   color: var(--black);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
   overflow-x: hidden;
 }
 
@@ -55,12 +58,14 @@ img {
   display: inline-block;
   inline-size: fit-content;
   color: var(--white);
+  font-weight: 600;
   background: var(--black);
   border-radius: 30px;
   padding-block: 1em;
-  padding-inline: 1.5em;
-  border: 2px solid;
-  transition: all 0.5s ease;
+  padding-inline: 2em;
+  border: 3px solid;
+  transition: all 0.3s ease;
+  user-select: none;
 }
 
 @media (any-hover: hover) {
@@ -467,7 +472,8 @@ ul.bogo-language-switcher li a {
     time,
     figure
   ) {
-  margin-block-start: 1.3em;
+  margin-block-start: 1em;
+  text-align: justify;
 }
 
 .entry-content
@@ -531,4 +537,9 @@ ul.bogo-language-switcher li a {
 .entry-content p {
   font-size: 1rem;
   line-height: 2;
+}
+
+.entry-content img {
+  width: 100%;
+  max-width: 100%;
 }
