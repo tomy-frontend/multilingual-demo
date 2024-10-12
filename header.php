@@ -13,7 +13,7 @@
 
 <body <?php body_class(); ?>>
     <header class="header">
-        <nav class="global-nav">
+        <nav class="global-nav" aria-label="グローバルナビゲーション">
             <?php
             $locale = get_locale();
             $link = '#';
@@ -96,8 +96,89 @@
                     <!-- 言語切り替えスイッチ -->
                 </li>
             </ul>
+            <!-- ドロワーメニューボタン -->
+            <button
+                is="js-drawer-button"
+                class="drawer__button"
+                type="button"
+                aria-label="メニューを開く"
+                aria-controls="navigation"
+                aria-expanded="false">
+                <span class="drawer__bar"></span>
+            </button>
+            <!-- ドロワーメニューボタン -->
         </nav>
     </header>
+
+    <!-- ドロワーメニュー -->
+    <nav
+        id="navigation"
+        class="drawer__nav"
+        aria-label="ドロワーメニュー"
+        inert>
+        <ul class="drawer__list">
+            <li class="drawer__item">
+                <?php
+                $locale = get_locale();
+                $link = home_url('/about'); // デフォルトは日本語
+                if ($locale == 'en') {
+                    // 英語の場合
+                    $link = home_url('/en/about');
+                } elseif ($locale == 'ar') {
+                    // アラビア語の場合
+                    $link = home_url('/ar/about');
+                }
+                ?>
+                <a href="<?php echo esc_url($link); ?>" class="drawer__link">
+                    <?php
+                    $locale = get_locale();
+                    if ($locale == 'ja'): ?>
+                        <!-- 日本語用のテキスト -->
+                        私について
+                    <?php elseif ($locale == 'ar'): ?>
+                        <!-- アラビア語用のテキスト -->
+                        عن
+                    <?php else: ?>
+                        <!-- 英語用のテキスト -->
+                        ABOUT
+                    <?php endif; ?>
+                </a>
+            </li>
+            <?php
+            $locale = get_locale();
+            $link = home_url('/company'); // デフォルトは日本語
+            if ($locale == 'en') {
+                // 英語の場合
+                $link = home_url('/en/company');
+            } elseif ($locale == 'ar') {
+                // アラビア語の場合
+                $link = home_url('/ar/company');
+            }
+            ?>
+            <li class="drawer__item">
+                <a href="<?php echo esc_url($link); ?>" class="drawer__link">
+                    <?php
+                    $locale = get_locale();
+                    if ($locale == 'ja'): ?>
+                        <!-- 日本語用のテキスト -->
+                        会社情報
+                    <?php elseif ($locale == 'ar'): ?>
+                        <!-- アラビア語用のテキスト -->
+                        شركة
+                    <?php else: ?>
+                        <!-- 英語用のテキスト -->
+                        COMPANY
+                    <?php endif; ?>
+                </a>
+            </li>
+            <li class="drawer__item">
+                <!-- 言語切り替えスイッチ -->
+                <?php echo do_shortcode('[bogo]'); ?>
+                <!-- 言語切り替えスイッチ -->
+            </li>
+        </ul>
+    </nav>
+    <!-- ドロワーメニュー -->
 
     <main>
 
