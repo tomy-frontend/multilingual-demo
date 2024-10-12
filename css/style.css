@@ -137,7 +137,13 @@ img {
   padding-block: 20px;
   background: var(--black);
   color: var(--white);
+  transition: all 0.3s ease;
   z-index: 99;
+}
+
+.header.scrolled {
+  padding-block: 10px;
+  transform: translateY(-2px);
 }
 
 /* global-nav */
@@ -163,7 +169,6 @@ img {
 @media (any-hover: hover) {
   .global-nav h1:hover {
     rotate: -3deg;
-    scale: 1.1;
   }
 }
 
@@ -316,7 +321,7 @@ ul.bogo-language-switcher li a {
   inset: 0;
   display: grid;
   place-content: center;
-  background: gray;
+  background: #515151;
   width: 100dvw;
   height: 100dvh;
   color: white;

@@ -144,3 +144,48 @@ class DrawerMenu {
 document.addEventListener("DOMContentLoaded", () => {
   new DrawerMenu();
 });
+
+// headerスクロールイベント// scroll-effect.js
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector(".header");
+  let headerHeight = header.offsetHeight;
+  let isScrolled = false;
+  let lastScrollTop = 0;
+  const scrollBuffer = 50; // スクロールのバッファー値
+
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  const handleScroll = debounce(function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (!isScrolled && scrollTop > headerHeight + scrollBuffer) {
+      header.classList.add("scrolled");
+      isScrolled = true;
+    } else if (isScrolled && scrollTop <= headerHeight) {
+      header.classList.remove("scrolled");
+      isScrolled = false;
+    }
+
+    lastScrollTop = scrollTop;
+  }, 10); // 10ミリ秒のデバウンス
+
+  window.addEventListener("scroll", handleScroll);
+
+  // ウィンドウサイズが変更された場合にheaderHeightを更新
+  window.addEventListener(
+    "resize",
+    debounce(function () {
+      headerHeight = header.offsetHeight;
+    }, 100)
+  );
+});
